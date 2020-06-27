@@ -1,0 +1,38 @@
+mybatis:
+  type-aliases-package: com.jjw.domain
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+sharding:
+  jdbc:
+    datasource:
+      names: mydb0,mydb1
+      mydb0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/my_db_01?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root123
+      mydb1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/my_db_02?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT
+        username: root
+        password: root123
+    config:
+      props:
+        sql:
+          show: true
+      sharding:
+        tables:
+          userinfo:
+            actual-data-nodes: mydb$->{0..1}.userinfo_$->{0..1}
+            database-strategy:
+              standard:
+                sharding-column: sex
+                precise-algorithm-class-name: com.jjw.algorithm.MyPreciseShardingAlgorithm
+            table-strategy:
+              standard:
+                sharding-column: age
+                precise-algorithm-class-name: com.jjw.algorithm.MyPreciseShardingAlgorithm
+                range-algorithm-class-name: com.jjw.algorithm.MyRangeShardingAlgorithm

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jjw.mapper.UserInfoMapper">
+
+    <select id="selectByConditon" resultType="UserInfo">
+        select * from userinfo where
+        <trim suffixOverrides="and">
+            <if test="condition.id != null">
+                id = #{condition.id} and
+            </if>
+            <if test="condition.name != null and condition.name != ''">
+                name = #{condition.name} and
+            </if>
+            <if test="condition.sex != null">
+                sex = #{condition.sex} and
+            </if>
+            <choose>
+                <when test="condition.preciseAge != null">
+                    age = #{condition.preciseAge} and
+                </when>
+                <when test="condition.minAge != null and condition.maxAge != null">
+                    age between #{condition.minAge} and #{condition.maxAge} and
+                </when>
+                <when test="condition.minAge != null">
+                    age between #{condition.minAge} and 999 and
+                </when>
+                <when test="condition.maxAge != null">
+                    age between 0 and #{condition.maxAge} and
+                </when>
+            </choose>
+        </trim>
+    </select>
+
+    <insert id="addUserInfo">
+        insert into userinfo(name,sex,age) value(#{userInfo.name},#{userInfo.sex},#{userInfo.age})
+    </insert>
+
+</mapper>
