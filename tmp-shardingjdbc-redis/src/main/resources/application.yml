@@ -1,3 +1,17 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 3000
+        max-idle: 4
+        min-idle: 0
+    timeout: 3000
+
 mybatis:
   type-aliases-package: com.jjw.domain
   config-location: classpath:mybatis/mybatis-config.xml

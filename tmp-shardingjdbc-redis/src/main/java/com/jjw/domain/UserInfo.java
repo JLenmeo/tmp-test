@@ -1,6 +1,8 @@
 package com.jjw.domain;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo implements Serializable {
 
     private Integer id;
 
