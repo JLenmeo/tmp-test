@@ -12,7 +12,7 @@ public class HexUtil {
             // 每个byte转换成16进制字符时，bytes[i] & 0xff如果高位是0，输出将会去掉，所以+0x100(在更高位加1)，再截取后两位字符
             builder.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
         }
-        return builder.toString();
+        return builder.toString().toUpperCase();
     }
 
     public static byte[] hex2Byte(String string) {

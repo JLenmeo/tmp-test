@@ -8,6 +8,12 @@ import java.io.InputStream;
 
 public class PrinterTest {
 
+    /**
+     * 向up358发送打印指令
+     *
+     * 设备序列号：KMUP35820150005 vid=0x6868 pid=0x0200
+     * @throws Exception
+     */
     @Test
     public void up358() throws Exception{
 
