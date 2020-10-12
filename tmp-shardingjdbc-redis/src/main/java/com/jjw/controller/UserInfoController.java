@@ -1,5 +1,6 @@
 package com.jjw.controller;
 
+import com.jjw.aop.RateLimiter;
 import com.jjw.domain.UserInfo;
 import com.jjw.domain.UserInfoCondition;
 import com.jjw.mapper.UserInfoMapper;
@@ -50,6 +51,14 @@ public class UserInfoController {
     public String deleteMap(Integer id){
         userInfoMap.remove(String.valueOf(id));
         return "成功";
+    }
+
+    @RequestMapping("/rateLimit")
+    @RateLimiter(key = "test-limit",limit = 3L,expire = 30L)
+    public String rateLimitTest(){
+
+        return "成功";
+
     }
 
 }
