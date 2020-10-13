@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 3000
+        max-idle: 4
+        min-idle: 0
+    timeout: 3000
+
+middle:
+  sentinel:
+    nacos-server-address: middle-nacos.kuaidizs.cn:80
+    nacos-namespace: 800f826c-a1b2-45a8-b522-2b262b162ef4

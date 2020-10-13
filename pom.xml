@@ -12,7 +12,6 @@
         <module>tmp-shardingjdbc-redis</module>
         <module>tmp-usb-printer</module>
         <module>tmp-sentinel-client</module>
-        <module>tmp-sentinel-cluster-server</module>
     </modules>
 
     <parent>
