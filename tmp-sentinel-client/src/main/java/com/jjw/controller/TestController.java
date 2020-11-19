@@ -1,5 +1,6 @@
 package com.jjw.controller;
 
+import com.jjw.request.TestRequest;
 import com.jjw.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +13,9 @@ public class TestController {
     TestService testService;
 
     @RequestMapping("/test")
-    public String test(){
+    public String test(TestRequest request){
 
-        return testService.test();
+        return testService.test(request);
 
     }
 

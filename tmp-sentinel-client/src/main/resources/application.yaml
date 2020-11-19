@@ -3,9 +3,9 @@ server:
 
 spring:
   redis:
-    host: localhost
+    host: 39.99.184.126
     port: 6379
-    password:
+    password: test
     database: 0
     jedis:
       pool:
