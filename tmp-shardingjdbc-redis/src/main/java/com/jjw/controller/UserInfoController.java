@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 用户信息Controller
+ */
 @RestController
 public class UserInfoController {
 
