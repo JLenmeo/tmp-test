@@ -48,6 +48,24 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
             <version>${springcloud.version}</version>
         </dependency>
+        <!--sentinel整合gateway的依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+            <version>${springcloud-alibaba.version}</version>
+        </dependency>
+        <!--sentinel的依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <version>${springcloud-alibaba.version}</version>
+        </dependency>
+        <!--sentinel规则持久化使用nacos做数据源-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>1.8.6</version>
+        </dependency>
         <!--springcloud-alibaba-->
     </dependencies>
 
